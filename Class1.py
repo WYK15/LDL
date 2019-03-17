@@ -2,6 +2,9 @@ from functools import reduce
 
 
 class sensetivor():
+    """
+    用感知器模拟一个and运算
+    """
     def __init__(self,input_counts,f):
         self.input_counts = input_counts
         self.f = f
