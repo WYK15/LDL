@@ -1,7 +1,7 @@
 from typing import List
 
 class Solution:
-     def longestConsecutive(self, nums):
+    def longestConsecutive(self, nums):
         Hash_dict = dict()
         max_length = 0
         for number in nums:
@@ -17,7 +17,7 @@ class Solution:
         return max_length
 
 
-     def evalRPN(self, tokens: List[str])->int:
+    def evalRPN(self, tokens: List[str])->int:
         nums = []
         op = ["+","-","*","/"]
         for s in tokens:
@@ -36,8 +36,21 @@ class Solution:
                     nums.append(int(num2/num1))
         return nums.pop()
 
+    def singleNumber(self, nums: List[int]) -> int:
+        result = 0
+        for i in  range(32):
+            count = 0
+            tmp = 1 << i
+            for num in nums:
+                if tmp & num :
+                    count+=1
+            if count % 3 == 1:
+                result |= tmp
+        while result >= 2 ** 31:
+            result -= 2 ** 32
+        return  result
+
+
 if __name__ == '__main__':
-    print("aaa")
-
-
+   pass
 
