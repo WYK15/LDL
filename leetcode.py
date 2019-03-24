@@ -1,5 +1,12 @@
 from typing import List
 
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 class Solution:
     def longestConsecutive(self, nums):
         Hash_dict = dict()
@@ -51,6 +58,26 @@ class Solution:
         return  result
 
 
+    def longestWord(self, words: List[str]) -> str:
+        sets = set(words)
+        print(sets)
+        res = ""
+        for s in words:
+            if len(s) >= len(res):
+                flag = True
+                for i in range(1,len(s)):
+                    if s[0:i] not in sets:
+                        flag = False
+                        break
+                if flag:
+                    if (len(s) == len(res) and s < res) or (len(s) != len(res)) :
+                        res = s
+        return res
+
+
+
 if __name__ == '__main__':
-   pass
+    pass
+
+
 
